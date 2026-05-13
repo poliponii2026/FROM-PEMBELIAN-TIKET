@@ -1,453 +1,553 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>POLIPONI FESTIVAL CHECKOUT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POLIPONI FESTIVAL 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#070707;
-    color:white;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-}
-
-.hidden{
-    display:none !important;
+background:#070707;
+color:white;
+overflow-x:hidden;
 }
 
 /* BACKGROUND */
-.bg-glow{
-    position:fixed;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,#ff2d75 0%, transparent 70%);
-    filter:blur(100px);
-    opacity:.25;
-    z-index:-1;
-}
 
-.bg2{
-    right:-200px;
-    top:-100px;
+.bg{
+position:fixed;
+width:600px;
+height:600px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.2;
+z-index:-1;
 }
 
 .bg1{
-    left:-200px;
-    bottom:-100px;
-    background:radial-gradient(circle,#ff9800 0%, transparent 70%);
+background:#ff2d75;
+left:-200px;
+bottom:-200px;
+}
+
+.bg2{
+background:#ff9800;
+right:-200px;
+top:-200px;
 }
 
 /* PAGE */
+
 .page{
-    min-height:100vh;
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:30px 15px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hidden{
+display:none !important;
 }
 
 .container{
-    width:100%;
-    max-width:1100px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(14px);
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
-    animation:fade .6s ease;
+width:100%;
+max-width:1100px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
+animation:fade .5s ease;
 }
 
 @keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
-/* HEADER */
+/* BANNER */
+
 .banner{
-    width:100%;
-    height:280px;
-    object-fit:cover;
+width:100%;
+height:280px;
+object-fit:cover;
 }
 
-.header-content{
-    padding:30px;
+.header{
+padding:35px;
 }
 
 .badge{
-    display:inline-block;
-    background:linear-gradient(45deg,#ff2d75,#ff9800);
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:13px;
-    font-weight:600;
-    margin-bottom:15px;
+display:inline-block;
+padding:10px 18px;
+border-radius:50px;
+background:linear-gradient(45deg,#ff2d75,#ff9800);
+font-size:13px;
+font-weight:700;
+margin-bottom:20px;
 }
 
 .title{
-    font-size:38px;
-    font-weight:800;
-    line-height:1.2;
-}
-
-.subtitle{
-    margin-top:10px;
-    color:#d7d7d7;
-}
-
-/* STEP */
-.steps{
-    display:flex;
-    gap:15px;
-    padding:0 30px 30px;
-    flex-wrap:wrap;
-}
-
-.step{
-    flex:1;
-    min-width:150px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    padding:18px;
-    border-radius:18px;
-}
-
-.step.active{
-    background:linear-gradient(45deg,#ff2d75,#ff9800);
-}
-
-.step small{
-    opacity:.8;
-}
-
-/* FORM */
-.content{
-    padding:30px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.input-group{
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    margin-bottom:10px;
-    font-size:14px;
-    font-weight:600;
-}
-
-input,
-select{
-    width:100%;
-    height:55px;
-    border:none;
-    outline:none;
-    border-radius:16px;
-    padding:0 18px;
-    background:rgba(255,255,255,.08);
-    color:white;
-    font-size:15px;
-}
-
-input::placeholder{
-    color:#cfcfcf;
-}
-
-.full{
-    grid-column:1/-1;
-}
-
-/* TICKET */
-.ticket-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-    margin-top:10px;
-}
-
-.ticket-card{
-    position:relative;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    padding:25px;
-    border-radius:24px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.ticket-card:hover{
-    transform:translateY(-5px);
-    border-color:#ff2d75;
-}
-
-.ticket-card.active{
-    border:2px solid #ff9800;
-    background:linear-gradient(180deg,rgba(255,45,117,.25),rgba(255,152,0,.15));
-}
-
-.ticket-card h3{
-    font-size:22px;
-    margin-bottom:8px;
-}
-
-.ticket-card .price{
-    font-size:30px;
-    font-weight:800;
-    margin:15px 0;
-}
-
-.sale{
-    display:inline-block;
-    background:#00c853;
-    padding:6px 14px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:700;
-}
-
-/* QRIS */
-.qris-box{
-    background:white;
-    padding:20px;
-    border-radius:25px;
-    text-align:center;
-}
-
-.qris-box img{
-    width:100%;
-    max-width:280px;
-}
-
-/* SUMMARY */
-.summary{
-    margin-top:20px;
-    background:rgba(255,255,255,.05);
-    border-radius:20px;
-    padding:25px;
-}
-
-.summary h2{
-    margin-bottom:15px;
-}
-
-.summary-item{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-}
-
-.total{
-    margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.1);
-    font-size:24px;
-    font-weight:800;
-}
-
-/* BUTTON */
-.button-group{
-    display:flex;
-    gap:15px;
-    margin-top:30px;
-    flex-wrap:wrap;
-}
-
-button{
-    flex:1;
-    min-width:180px;
-    height:58px;
-    border:none;
-    border-radius:18px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:linear-gradient(45deg,#ff2d75,#ff9800);
-    color:white;
-}
-
-.btn-secondary{
-    background:rgba(255,255,255,.08);
-    color:white;
-}
-
-button:hover{
-    transform:translateY(-2px);
-}
-
-button:disabled{
-    opacity:.5;
-    cursor:not-allowed;
-}
-
-/* LOADING */
-.loading-screen{
-    position:fixed;
-    inset:0;
-    background:#070707;
-    z-index:9999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-}
-
-.loader{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    border:8px solid rgba(255,255,255,.1);
-    border-top:8px solid #ff2d75;
-    animation:spin 1s linear infinite;
-    margin-bottom:30px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.loading-text{
-    font-size:22px;
-    font-weight:700;
-    text-align:center;
-}
-
-.loading-sub{
-    color:#cfcfcf;
-    margin-top:10px;
-}
-
-/* STATUS */
-.status-box{
-    text-align:center;
-    padding:50px 20px;
-}
-
-.status-icon{
-    font-size:90px;
-    margin-bottom:20px;
-}
-
-.pending{
-    color:#ff9800;
-}
-
-.big-title{
-    font-size:42px;
-    font-weight:800;
+font-size:42px;
+font-weight:800;
+line-height:1.2;
 }
 
 .desc{
-    max-width:700px;
-    margin:20px auto;
-    color:#d0d0d0;
-    line-height:1.7;
+margin-top:12px;
+color:#cfcfcf;
+line-height:1.8;
 }
 
-.limit-box{
-    margin-top:30px;
-    background:rgba(255,152,0,.1);
-    border:1px solid rgba(255,152,0,.4);
-    padding:25px;
-    border-radius:25px;
+/* STEP */
+
+.steps{
+display:flex;
+gap:15px;
+padding:0 35px 35px;
+flex-wrap:wrap;
+}
+
+.step{
+flex:1;
+min-width:150px;
+padding:18px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.step.active{
+background:linear-gradient(45deg,#ff2d75,#ff9800);
+}
+
+/* CONTENT */
+
+.content{
+padding:35px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.input-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:10px;
+font-size:14px;
+font-weight:600;
+}
+
+input{
+width:100%;
+height:58px;
+border:none;
+outline:none;
+border-radius:18px;
+padding:0 18px;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:15px;
+}
+
+input::placeholder{
+color:#aaa;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+/* BUTTON */
+
+.buttons{
+display:flex;
+gap:15px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+button{
+flex:1;
+min-width:180px;
+height:58px;
+border:none;
+border-radius:18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button:disabled{
+opacity:.4;
+cursor:not-allowed;
+}
+
+.primary{
+background:linear-gradient(45deg,#ff2d75,#ff9800);
+color:white;
+}
+
+.secondary{
+background:rgba(255,255,255,.08);
+color:white;
 }
 
 /* TIMER */
+
 .timer{
-    margin-top:20px;
-    display:inline-block;
-    background:rgba(255,45,117,.15);
-    border:1px solid rgba(255,45,117,.4);
-    padding:12px 20px;
-    border-radius:50px;
-    font-weight:700;
-    color:#ff8fb5;
+margin-top:25px;
+display:inline-block;
+padding:12px 22px;
+border-radius:50px;
+background:rgba(255,45,117,.15);
+border:1px solid rgba(255,45,117,.4);
+color:#ff8fb5;
+font-weight:700;
+}
+
+/* TICKET */
+
+.ticket-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.ticket{
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+cursor:pointer;
+transition:.3s;
+}
+
+.ticket:hover{
+transform:translateY(-5px);
+border-color:#ff2d75;
+}
+
+.ticket.active{
+border:2px solid #ff9800;
+background:linear-gradient(180deg,rgba(255,45,117,.2),rgba(255,152,0,.15));
+}
+
+.sale{
+display:inline-block;
+padding:6px 14px;
+border-radius:50px;
+background:#00c853;
+font-size:12px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.ticket h2{
+font-size:26px;
+margin-bottom:8px;
+}
+
+.ticket p{
+color:#cfcfcf;
+line-height:1.7;
+}
+
+.price{
+font-size:34px;
+font-weight:800;
+margin-top:20px;
+}
+
+/* SUMMARY */
+
+.summary{
+margin-top:35px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+}
+
+.summary h2{
+margin-bottom:20px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.total{
+margin-top:20px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,.1);
+font-size:24px;
+font-weight:800;
+}
+
+/* QRIS */
+
+.qris{
+margin-top:35px;
+background:white;
+padding:25px;
+border-radius:30px;
+text-align:center;
+}
+
+.qris img{
+max-width:280px;
+width:100%;
+}
+
+/* LOADING */
+
+.loading{
+position:fixed;
+inset:0;
+background:#070707;
+z-index:9999;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.loader{
+width:120px;
+height:120px;
+border-radius:50%;
+border:8px solid rgba(255,255,255,.1);
+border-top:8px solid #ff2d75;
+animation:spin 1s linear infinite;
+margin-bottom:30px;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+.loading h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.loading p{
+color:#cfcfcf;
+}
+
+/* PAGE 3 */
+
+.status{
+text-align:center;
+padding:60px 20px;
+}
+
+.warning{
+width:140px;
+height:140px;
+margin:auto;
+border-radius:35px;
+background:linear-gradient(45deg,#ff9800,#ff2d75);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:70px;
+box-shadow:0 20px 50px rgba(255,152,0,.4);
+animation:pulse 2s infinite;
+margin-bottom:35px;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+100%{
+transform:scale(1);
+}
+}
+
+.big-title{
+font-size:42px;
+font-weight:800;
+}
+
+.text{
+margin-top:20px;
+max-width:700px;
+margin-inline:auto;
+color:#d0d0d0;
+line-height:1.8;
+}
+
+.limit-box{
+margin-top:35px;
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.fake-qris{
+background:white;
+padding:30px;
+border-radius:30px;
+max-width:380px;
+margin:auto;
+}
+
+.fake-pattern{
+height:260px;
+border-radius:20px;
+background:
+linear-gradient(45deg,#111 25%,transparent 25%),
+linear-gradient(-45deg,#111 25%,transparent 25%),
+linear-gradient(45deg,transparent 75%,#111 75%),
+linear-gradient(-45deg,transparent 75%,#111 75%);
+background-size:28px 28px;
+background-position:0 0,0 14px,14px -14px,-14px 0;
+position:relative;
+}
+
+.fake-warning{
+position:absolute;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.fake-warning div{
+width:110px;
+height:110px;
+border-radius:50%;
+background:#ff2d75;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:60px;
+font-weight:800;
+color:white;
+box-shadow:0 10px 40px rgba(255,45,117,.5);
+}
+
+.limit-text{
+margin-top:20px;
+color:#111;
+text-align:center;
+}
+
+.limit-text h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.limit-text p{
+line-height:1.8;
+font-size:14px;
+color:#444;
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
 
-    .title{
-        font-size:28px;
-    }
+.title{
+font-size:30px;
+}
 
-    .grid{
-        grid-template-columns:1fr;
-    }
+.big-title{
+font-size:30px;
+}
 
-    .banner{
-        height:200px;
-    }
+.grid{
+grid-template-columns:1fr;
+}
 
-    .steps{
-        flex-direction:column;
-    }
+.banner{
+height:200px;
+}
 
-    .big-title{
-        font-size:30px;
-    }
+.steps{
+flex-direction:column;
+}
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="bg-glow bg1"></div>
-<div class="bg-glow bg2"></div>
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
 
 <!-- PAGE 1 -->
+
 <section class="page" id="page1">
 
 <div class="container">
 
 <img src="banner-deskripsi.png" class="banner">
 
-<div class="header-content">
-<div class="badge">POLIPONI FESTIVAL 2026</div>
-<h1 class="title">Checkout Tiket Bundling 4 Orang</h1>
-<p class="subtitle">
-Silahkan isi data diri terlebih dahulu untuk melanjutkan pembelian tiket.
+<div class="header">
+
+<div class="badge">
+POLIPONI FESTIVAL 2026
+</div>
+
+<h1 class="title">
+Checkout Tiket Bundling 4 Orang
+</h1>
+
+<p class="desc">
+Silahkan isi data diri terlebih dahulu sebelum melanjutkan pembelian tiket event POLIPONI FESTIVAL 2026.
 </p>
 
 <div class="timer">
 ⏰ Waktu Pemesanan : <span id="timer">08:00</span>
 </div>
+
 </div>
 
 <div class="steps">
+
 <div class="step active">
 STEP 1<br>
 <small>Data Diri</small>
@@ -462,6 +562,7 @@ STEP 2<br>
 STEP 3<br>
 <small>Verifikasi</small>
 </div>
+
 </div>
 
 <div class="content">
@@ -495,10 +596,12 @@ STEP 3<br>
 
 </div>
 
-<div class="button-group">
-<button class="btn-primary" id="next1" disabled>
+<div class="buttons">
+
+<button class="primary" id="next1" disabled>
 Lanjut Ke Pembayaran
 </button>
+
 </div>
 
 </div>
@@ -508,20 +611,23 @@ Lanjut Ke Pembayaran
 </section>
 
 <!-- PAGE 2 -->
+
 <section class="page hidden" id="page2">
 
 <div class="container">
 
-<div class="header-content">
+<div class="header">
 
-<div class="badge">STEP 2</div>
+<div class="badge">
+STEP 2
+</div>
 
 <h1 class="title">
-Pilih Paket Tiket & Pembayaran
+Pilih Paket Tiket
 </h1>
 
-<p class="subtitle">
-Pilih kategori tiket bundling terbaik untuk event POLIPONI FESTIVAL 2026
+<p class="desc">
+Pilih kategori tiket terbaik untuk pengalaman event POLIPONI FESTIVAL 2026.
 </p>
 
 </div>
@@ -530,59 +636,94 @@ Pilih kategori tiket bundling terbaik untuk event POLIPONI FESTIVAL 2026
 
 <div class="ticket-grid">
 
-<div class="ticket-card" data-name="Festival" data-price="1900000">
-<div class="sale">ON SALE</div>
-<h3>Festival</h3>
-<p>Paket Bundling 4 Orang</p>
-<div class="price">Rp 1.900.000</div>
+<div class="ticket" data-name="Festival" data-price="1900000">
+
+<div class="sale">
+ON SALE
 </div>
 
-<div class="ticket-card" data-name="Premium" data-price="2900000">
-<div class="sale">ON SALE</div>
-<h3>Premium</h3>
-<p>Paket Bundling 4 Orang</p>
-<div class="price">Rp 2.900.000</div>
+<h2>
+Festival
+</h2>
+
+<p>
+Bundling 4 Orang • Regular Festival Access
+</p>
+
+<div class="price">
+Rp 1.900.000
 </div>
 
-<div class="ticket-card" data-name="Fast Track" data-price="3900000">
-<div class="sale">ON SALE</div>
-<h3>Fast Track</h3>
-<p>Paket Bundling 4 Orang</p>
-<div class="price">Rp 3.900.000</div>
+</div>
+
+<div class="ticket" data-name="Premium" data-price="2900000">
+
+<div class="sale">
+ON SALE
+</div>
+
+<h2>
+Premium
+</h2>
+
+<p>
+Bundling 4 Orang • Priority Access & Premium Area
+</p>
+
+<div class="price">
+Rp 2.900.000
+</div>
+
+</div>
+
+<div class="ticket" data-name="Fast Track" data-price="3900000">
+
+<div class="sale">
+ON SALE
+</div>
+
+<h2>
+Fast Track
+</h2>
+
+<p>
+Bundling 4 Orang • VIP Fast Lane & Exclusive Entry
+</p>
+
+<div class="price">
+Rp 3.900.000
+</div>
+
 </div>
 
 </div>
 
 <div class="summary">
 
-<h2>Ringkasan Pembayaran</h2>
+<h2>
+Ringkasan Pembayaran
+</h2>
 
-<div class="summary-item">
+<div class="row">
 <span>Kategori Tiket</span>
-<span id="sumTicket">-</span>
+<span id="ticketName">-</span>
 </div>
 
-<div class="summary-item">
+<div class="row">
 <span>Jumlah Orang</span>
 <span>4 Orang</span>
 </div>
 
-<div class="summary-item total">
+<div class="row total">
 <span>Total Pembayaran</span>
-<span id="sumPrice">Rp 0</span>
+<span id="ticketPrice">Rp 0</span>
 </div>
 
 </div>
 
-<div style="margin-top:35px;">
+<div class="qris">
 
-<h2 style="margin-bottom:20px;">
-QRIS Pembayaran
-</h2>
-
-<div class="qris-box">
 <img src="qris-pembayaran.png">
-</div>
 
 </div>
 
@@ -591,13 +732,13 @@ QRIS Pembayaran
 <input type="file" id="bukti" accept="image/*">
 </div>
 
-<div class="button-group">
+<div class="buttons">
 
-<button class="btn-secondary" onclick="backTo1()">
+<button class="secondary" onclick="backPage1()">
 Kembali
 </button>
 
-<button class="btn-primary" id="bayarBtn" disabled>
+<button class="primary" id="payBtn" disabled>
 Konfirmasi Pembayaran
 </button>
 
@@ -610,28 +751,30 @@ Konfirmasi Pembayaran
 </section>
 
 <!-- LOADING -->
-<div class="loading-screen hidden" id="loadingScreen">
+
+<div class="loading hidden" id="loading">
 
 <div class="loader"></div>
 
-<div class="loading-text">
+<h1 id="loadingTitle">
 Memproses Pembayaran...
-</div>
+</h1>
 
-<div class="loading-sub">
+<p id="loadingDesc">
 Mohon tunggu sebentar
-</div>
+</p>
 
 </div>
 
 <!-- PAGE 3 -->
+
 <section class="page hidden" id="page3">
 
 <div class="container">
 
-<div class="status-box">
+<div class="status">
 
-<div class="status-icon pending">
+<div class="warning">
 ⚠️
 </div>
 
@@ -639,34 +782,46 @@ Mohon tunggu sebentar
 PEMBAYARAN STATUS PENDING
 </h1>
 
-<p class="desc">
-QRIS pembayaran telah mencapai limit transaksi.
-Silahkan lakukan verifikasi pembelian untuk melanjutkan proses validasi tiket.
+<p class="text">
+QRIS pembayaran telah mencapai limit transaksi otomatis.
+Segera lakukan pembayaran ulang untuk melanjutkan proses verifikasi tiket event POLIPONI FESTIVAL 2026.
 </p>
 
 <div class="limit-box">
 
-<h2 style="margin-bottom:15px;">
-QRIS PAYMENT LIMIT
-</h2>
+<div class="fake-qris">
 
-<p>
-Sistem sedang melakukan pengecekan pembayaran otomatis.
-</p>
+<div class="fake-pattern">
 
-<br>
-
-<img src="qris-pembayaran.png" style="max-width:250px;border-radius:20px;">
+<div class="fake-warning">
+<div>!</div>
+</div>
 
 </div>
 
-<div class="button-group" style="margin-top:40px;">
+<div class="limit-text">
 
-<button class="btn-secondary" onclick="location.reload()">
+<h2>
+QRIS LIMIT
+</h2>
+
+<p>
+Segera lakukan pembayaran ulang untuk verifikasi pembayaran sebelum transaksi pending hangus otomatis oleh sistem.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="buttons" style="margin-top:40px;">
+
+<button class="secondary" onclick="location.reload()">
 Kembali
 </button>
 
-<button class="btn-primary" onclick="verifyPurchase()">
+<button class="primary" onclick="verifyPurchase()">
 Verifikasi Pembelian
 </button>
 
@@ -680,27 +835,30 @@ Verifikasi Pembelian
 
 <script>
 
-// TIMER
+/* TIMER */
+
 let duration = 8 * 60;
+
 const timer = document.getElementById('timer');
 
 setInterval(function(){
 
-    let minutes = Math.floor(duration / 60);
-    let seconds = duration % 60;
+let minutes = Math.floor(duration / 60);
+let seconds = duration % 60;
 
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+minutes = minutes < 10 ? '0' + minutes : minutes;
+seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    timer.innerHTML = minutes + ':' + seconds;
+timer.innerHTML = minutes + ':' + seconds;
 
-    if(duration > 0){
-        duration--;
-    }
+if(duration > 0){
+duration--;
+}
 
 },1000);
 
-// VALIDASI PAGE1
+/* VALIDASI PAGE 1 */
+
 const inputs = [
 document.getElementById('nama'),
 document.getElementById('email'),
@@ -712,126 +870,137 @@ document.getElementById('alamat')
 const next1 = document.getElementById('next1');
 
 inputs.forEach(input=>{
-    input.addEventListener('input',validate1);
+
+input.addEventListener('input',validate1);
+
 });
 
 function validate1(){
 
-    let valid = true;
+let valid = true;
 
-    inputs.forEach(input=>{
-        if(input.value.trim() === ''){
-            valid = false;
-        }
-    });
+inputs.forEach(input=>{
 
-    next1.disabled = !valid;
+if(input.value.trim() === ''){
+valid = false;
 }
-
-next1.onclick = function(){
-    document.getElementById('page1').classList.add('hidden');
-    document.getElementById('page2').classList.remove('hidden');
-}
-
-// TIKET
-const cards = document.querySelectorAll('.ticket-card');
-const sumTicket = document.getElementById('sumTicket');
-const sumPrice = document.getElementById('sumPrice');
-const bukti = document.getElementById('bukti');
-const bayarBtn = document.getElementById('bayarBtn');
-
-let selected = false;
-
-cards.forEach(card=>{
-
-    card.addEventListener('click',()=>{
-
-        cards.forEach(c=>c.classList.remove('active'));
-
-        card.classList.add('active');
-
-        selected = true;
-
-        const name = card.dataset.name;
-        const price = Number(card.dataset.price);
-
-        sumTicket.innerHTML = name;
-
-        sumPrice.innerHTML =
-        'Rp ' + price.toLocaleString('id-ID');
-
-        validate2();
-
-    });
 
 });
 
-bukti.addEventListener('change',validate2);
-
-function validate2(){
-
-    if(selected && bukti.files.length > 0){
-        bayarBtn.disabled = false;
-    }else{
-        bayarBtn.disabled = true;
-    }
+next1.disabled = !valid;
 
 }
 
-function backTo1(){
+next1.onclick = function(){
 
-    document.getElementById('page2').classList.add('hidden');
-    document.getElementById('page1').classList.remove('hidden');
-
-}
-
-// LOADING PAGE 2 -> PAGE 3
-bayarBtn.onclick = function(){
-
-    document.getElementById('loadingScreen').classList.remove('hidden');
-
-    setTimeout(()=>{
-
-        document.getElementById('loadingScreen').classList.add('hidden');
-
-        document.getElementById('page2').classList.add('hidden');
-
-        document.getElementById('page3').classList.remove('hidden');
-
-    },5000);
+document.getElementById('page1').classList.add('hidden');
+document.getElementById('page2').classList.remove('hidden');
 
 }
 
-// VERIFY
+/* TICKET */
+
+const tickets = document.querySelectorAll('.ticket');
+
+const ticketName = document.getElementById('ticketName');
+const ticketPrice = document.getElementById('ticketPrice');
+
+const bukti = document.getElementById('bukti');
+
+const payBtn = document.getElementById('payBtn');
+
+let selected = false;
+
+tickets.forEach(ticket=>{
+
+ticket.addEventListener('click',()=>{
+
+tickets.forEach(t=>t.classList.remove('active'));
+
+ticket.classList.add('active');
+
+selected = true;
+
+ticketName.innerHTML = ticket.dataset.name;
+
+ticketPrice.innerHTML =
+'Rp ' + Number(ticket.dataset.price).toLocaleString('id-ID');
+
+validatePayment();
+
+});
+
+});
+
+bukti.addEventListener('change',validatePayment);
+
+function validatePayment(){
+
+if(selected && bukti.files.length > 0){
+
+payBtn.disabled = false;
+
+}else{
+
+payBtn.disabled = true;
+
+}
+
+}
+
+function backPage1(){
+
+document.getElementById('page2').classList.add('hidden');
+document.getElementById('page1').classList.remove('hidden');
+
+}
+
+/* LOADING */
+
+payBtn.onclick = function(){
+
+document.getElementById('loading').classList.remove('hidden');
+
+setTimeout(()=>{
+
+document.getElementById('loading').classList.add('hidden');
+
+document.getElementById('page2').classList.add('hidden');
+
+document.getElementById('page3').classList.remove('hidden');
+
+},5000);
+
+}
+
+/* VERIFY */
+
 function verifyPurchase(){
 
-    document.getElementById('loadingScreen').classList.remove('hidden');
+document.getElementById('loading').classList.remove('hidden');
 
-    document.querySelector('.loading-text').innerHTML =
-    'Memverifikasi Pembelian...';
+document.getElementById('loadingTitle').innerHTML =
+'Memverifikasi Pembelian...';
 
-    document.querySelector('.loading-sub').innerHTML =
-    'Mohon tunggu 1 menit';
+let count = 60;
 
-    let count = 60;
+const interval = setInterval(()=>{
 
-    const interval = setInterval(()=>{
+document.getElementById('loadingDesc').innerHTML =
+'Redirect dalam ' + count + ' detik';
 
-        document.querySelector('.loading-sub').innerHTML =
-        'Redirect dalam ' + count + ' detik';
+count--;
 
-        count--;
+if(count < 0){
 
-        if(count < 0){
+clearInterval(interval);
 
-            clearInterval(interval);
+window.location.href =
+'https://poliponii2026.github.io/THANKS-YOU-/';
 
-            window.location.href =
-            'https://poliponii2026.github.io/THANKS-YOU-/';
+}
 
-        }
-
-    },1000);
+},1000);
 
 }
 
